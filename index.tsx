@@ -487,9 +487,10 @@ class DraggableFlatList<T> extends React.Component<Props<T>, State> {
   }
 
   onListContentSizeChange = (w: number, h: number) => {
-    this.scrollViewSize.setValue(this.props.horizontal ? w : h)
-    if (this.props.onContentSizeChange) this.props.onContentSizeChange(w, h)
-  }
+    this.scrollViewSize.setValue(this.props.horizontal ? w : h - 200);
+    if (this.props.onContentSizeChange)
+      this.props.onContentSizeChange(w, h - 200);
+  };
 
   isAutoscrolling = {
     native: new Value<number>(0),
